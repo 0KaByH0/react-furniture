@@ -48,8 +48,9 @@ function Reg({ onLogin }) {
     if (validateEmail(email) && validatePass(password, password2)) {
       let payload = { email, password, isAdmin };
       // пост запрос до сервера для регістрації користувача
+      //.post('http://localhost:5000/reg', payload)
       axios
-        .post('http://localhost:5000/reg', payload)
+        .post('/reg', payload)
         .then((response) => response)
         .then(({ data }) => data.addEmail && onLogin(payload));
     } else {

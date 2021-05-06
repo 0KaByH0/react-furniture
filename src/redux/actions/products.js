@@ -38,8 +38,9 @@ export const onFindItem = (payload) => {
 
 export function fetchProducts() {
   return function (dispatch) {
+    //.post('http://localhost:5000/products')
     return axios
-      .post('http://localhost:5000/products')
+      .post('/products')
       .then((response) => response)
       .then(({ data }) => dispatch(setProducts(data)));
   };
@@ -48,14 +49,16 @@ export function fetchProducts() {
 export function editItem(payload) {
   return function (dispatch) {
     dispatch(onEditItem(payload));
-    return axios.post('http://localhost:5000/edit', { payload });
+    //return axios.post('http://localhost:5000/edit', { payload });
+    return axios.post('/edit', { payload });
   };
 }
 
 export function addItem(data) {
   return function (dispatch) {
     dispatch(onAddItem(data));
-    return axios.post('http://localhost:5000/add', { data });
+    //return axios.post('http://localhost:5000/add', { data });
+    return axios.post('/add', { data });
   };
 }
 
@@ -63,6 +66,7 @@ export function deleteItem(id) {
   console.log(id);
   return function (dispatch) {
     dispatch(onDeleteItem(id));
-    return axios.post('http://localhost:5000/delete', { id });
+    //return axios.post('http://localhost:5000/delete', { id });
+    return axios.post('/delete', { id });
   };
 }

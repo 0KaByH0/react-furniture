@@ -28,8 +28,9 @@ function Login({ onLogin }) {
   function onButtonClick() {
     if (email && password) {
       //запит до сервера за допомогою аксіос (пост запрос)
+      //.post('http://localhost:5000/log', { email, password })
       return axios
-        .post('http://localhost:5000/log', { email, password })
+        .post('/log', { email, password })
         .then((response) => response)
         .then((data) => getLogin(data));
     } else setError(true);
