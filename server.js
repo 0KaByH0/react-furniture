@@ -97,7 +97,6 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 //підключення парсерів та корс для безпечної передачі даних
-
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.static('public'));
 
